@@ -1,0 +1,14 @@
+name = "rjdebarras"
+main = "src/server.ts"
+compatibility_date = "2024-03-27"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rj-debarras-db"
+database_id = "da45d7de-209e-41e7-b50f-4532657b0d36"
+preview_database_id = "DB"
