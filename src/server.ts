@@ -129,7 +129,7 @@ export default {
           status: 200,
           headers: {
             ...corsHeaders,
-            'Set-Cookie': `session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000`,
+            'Set-Cookie': `session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=43200`,
           },
         });
       } catch (err: any) {
@@ -154,7 +154,18 @@ export default {
         status: 200,
         headers: {
           ...corsHeaders,
-          'Set-Cookie': `session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000`,
+          'Set-Cookie': `session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=43200`,
+        },
+      });
+    }
+
+    // 2.5. Logout (Tracking)
+    if (url.pathname === '/api/devis/logout' && request.method === 'POST') {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: {
+          ...corsHeaders,
+          'Set-Cookie': `session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT`,
         },
       });
     }

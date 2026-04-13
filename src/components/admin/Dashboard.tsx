@@ -21,9 +21,20 @@ export default function Dashboard() {
   // Persistence: Check for session on mount
   useEffect(() => {
     const saved = sessionStorage.getItem('admin_auth');
-    if (saved) {
-      setPassword(saved);
-      // Automatic login attempt will follow in the next effect that watches password/isAuthorized
+    const timestamp = sessionStorage.getItem('admin_auth_timestamp');
+    
+    if (saved && timestamp) {
+      const now = Date.now();
+      const age = now - parseInt(timestamp, 10);
+      const dayInMs = 24 * 60 * 60 * 1000;
+
+      if (age < dayInMs) {
+        setPassword(saved);
+      } else {
+        // Session expired
+        sessionStorage.removeItem('admin_auth');
+        sessionStorage.removeItem('admin_auth_timestamp');
+      }
     }
   }, []);
 
@@ -43,6 +54,7 @@ export default function Dashboard() {
       if (res.ok) {
         setIsAuthorized(true);
         sessionStorage.setItem('admin_auth', password);
+        sessionStorage.setItem('admin_auth_timestamp', Date.now().toString());
         const data = await res.json();
         setLeads(data.results || []);
         // Also fetch logs
@@ -51,6 +63,7 @@ export default function Dashboard() {
       } else {
         setError('Mot de passe incorrect');
         sessionStorage.removeItem('admin_auth');
+        sessionStorage.removeItem('admin_auth_timestamp');
       }
     } catch (err) {
       setError('Erreur de connexion au serveur.');
@@ -61,6 +74,7 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     sessionStorage.removeItem('admin_auth');
+    sessionStorage.removeItem('admin_auth_timestamp');
     setIsAuthorized(false);
     setPassword('');
   };

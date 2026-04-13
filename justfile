@@ -12,8 +12,8 @@ dev:
 build:
 	npm run build
 
-# Deploy to Cloudflare Workers (builds first)
-deploy: build
+# Sync production secrets and deploy to Cloudflare
+deploy: vars-sync build
 	npx wrangler deploy
 
 # Start the Cloudflare Pages local development server (with Functions & D1)
@@ -28,14 +28,14 @@ db-init:
 db-init-prod:
 	npx wrangler d1 execute DB --remote --file=./schema.sql
 
-# Sync production secrets from .prod.vars to Cloudflare
+# Sync production secrets from .prod.vars to Cloudflare (Worker backend only)
 vars-sync:
 	#!/usr/bin/env bash
 	if [ ! -f .prod.vars ]; then
 		echo "❌ .prod.vars not found. Copy .prod.sample and fill in your secrets."
 		exit 1
 	fi
-	echo "🚀 Syncing secrets to Cloudflare..."
+	echo "🚀 Syncing backend secrets to Cloudflare..."
 	npx wrangler secret bulk .prod.vars
 
 # View all leads currently in the local D1 database

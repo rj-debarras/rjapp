@@ -14,6 +14,8 @@ dist-ssr
 
 # Environment variables
 .env
+.env.local
+!.env.production
 .dev.vars
 .prod.vars
 .credentials

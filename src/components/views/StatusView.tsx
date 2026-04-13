@@ -1,10 +1,11 @@
-import { CheckCircle2, Clock, Phone, FileText, AlertCircle } from 'lucide-react';
+import { CheckCircle2, Clock, Phone, FileText, AlertCircle, Search } from 'lucide-react';
 
 interface StatusViewProps {
   lead: any;
+  onLogout: () => void;
 }
 
-export default function StatusView({ lead }: StatusViewProps) {
+export default function StatusView({ lead, onLogout }: StatusViewProps) {
   const steps = [
     { 
       id: 1, 
@@ -40,6 +41,18 @@ export default function StatusView({ lead }: StatusViewProps) {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 animate-in fade-in duration-700">
+      <div className="flex justify-start mb-8">
+        <button 
+          onClick={onLogout}
+          className="flex items-center gap-2 text-outline hover:text-primary font-bold text-sm transition-colors group"
+        >
+          <div className="p-2 bg-surface-container-low rounded-xl group-hover:bg-secondary group-hover:text-white transition-all">
+            <Search className="w-4 h-4" />
+          </div>
+          Consulter un autre devis
+        </button>
+      </div>
+
       {lead.status === 'Cancelled' && (
         <div className="mb-10 bg-red-50 border border-red-100 rounded-[2rem] p-6 sm:p-8 flex items-center gap-6 animate-in slide-in-from-top-4 duration-500">
           <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white shrink-0">
@@ -104,9 +117,9 @@ export default function StatusView({ lead }: StatusViewProps) {
             <DetailItem label="Localisation" value={lead.postal_code} />
           </div>
           <div className="space-y-6">
-             <DetailItem label="Date de demande" value={new Date(lead.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} />
-             <DetailItem label="Ascenseur" value={lead.has_elevator ? 'Présent' : 'Non présent'} />
-             <DetailItem label="Intervention" value={lead.status === 'New' ? 'En attente d\'étude' : 'Planification en cours'} />
+            <DetailItem label="Date de demande" value={new Date(lead.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} />
+            <DetailItem label="Ascenseur" value={lead.has_elevator ? 'Présent' : 'Non présent'} />
+            <DetailItem label="Intervention" value={lead.status === 'New' ? 'En attente d\'étude' : 'Planification en cours'} />
           </div>
         </div>
       </div>
@@ -135,3 +148,4 @@ function DetailItem({ label, value }: { label: string, value: string }) {
     </div>
   );
 }
+

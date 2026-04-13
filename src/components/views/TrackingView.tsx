@@ -63,6 +63,17 @@ export default function TrackingView() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/devis/logout', { method: 'POST', credentials: 'include' });
+      setLead(null);
+    } catch (err) {
+      console.error('Logout error', err);
+      // Fallback: just clear state
+      setLead(null);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[500px] gap-4">
@@ -72,7 +83,7 @@ export default function TrackingView() {
     );
   }
 
-  if (lead) return <StatusView lead={lead} />;
+  if (lead) return <StatusView lead={lead} onLogout={handleLogout} />;
 
   return (
     <div className="max-w-md mx-auto px-6 py-20 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out">
