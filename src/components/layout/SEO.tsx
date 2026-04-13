@@ -16,7 +16,7 @@ export default function SEO({ title, description, canonicalPath }: SEOProps) {
     const phone = import.meta.env.VITE_PHONE_NUMBER || "";
     const email = import.meta.env.VITE_CONTACT_EMAIL || "";
     const address = import.meta.env.VITE_POSTAL_ADDRESS || "";
-    const siteUrl = "https://rjdebarras.com";
+    const siteUrl = "https://jrdebarras.com";
     const fullUrl = `${siteUrl}${canonicalPath === '/' ? '' : canonicalPath}`;
 
     // Update Title
@@ -57,7 +57,7 @@ export default function SEO({ title, description, canonicalPath }: SEOProps) {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "RJ Débarras",
+      "name": "JR Débarras",
       "description": "Service de débarras professionnel en Île-de-France. Maison, appartement, cave, succession, syndrome de Diogène.",
       "url": siteUrl,
       "telephone": phone,

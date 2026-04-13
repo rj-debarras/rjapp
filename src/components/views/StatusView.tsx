@@ -66,7 +66,7 @@ export default function StatusView({ lead }: StatusViewProps) {
 
       <div className="text-center mb-12">
         <h1 className="text-4xl font-display font-bold text-primary mb-4 tracking-tight">Suivi de votre demande</h1>
-        <p className="text-outline text-lg">Référence : <span className="font-mono font-bold text-tertiary">RJ-{lead.tracking_code?.toUpperCase()}</span></p>
+        <p className="text-outline text-lg">Référence : <span className="font-mono font-bold text-tertiary">JR-{lead.tracking_code?.toUpperCase()}</span></p>
       </div>
 
       {/* Stepper */}

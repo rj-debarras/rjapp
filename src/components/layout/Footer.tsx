@@ -13,10 +13,10 @@ export default function Footer({ onViewChange }: { onViewChange?: (view: any) =>
             <div className="flex items-center gap-3">
               <img 
                 src={brandIcon} 
-                alt="Icone RJ" 
+                alt="Icone JR" 
                 className="h-12 md:h-14 w-auto object-contain drop-shadow-xl"
               />
-              <span className="font-display font-bold text-2xl text-white tracking-tight mt-1">RJ Débarras</span>
+              <span className="font-display font-bold text-2xl text-white tracking-tight mt-1">JR Débarras</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed max-w-xs mt-2">
               Service de débarras professionnel en Île-de-France. Estimation transparente, intervention rapide, recyclage responsable.
@@ -69,7 +69,7 @@ export default function Footer({ onViewChange }: { onViewChange?: (view: any) =>
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} RJ Débarras — Tous droits réservés
+            © {new Date().getFullYear()} JR Débarras — Tous droits réservés
           </p>
         </div>
       </div>

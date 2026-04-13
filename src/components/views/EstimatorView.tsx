@@ -48,7 +48,7 @@ export default function EstimatorView({ onReturnHome, onSuccess }: Props) {
         </div>
 
         <div className="relative z-10 hidden md:block md:mt-16">
-           <p className="text-sm font-bold text-white/30 tracking-widest uppercase">© {new Date().getFullYear()} RJ Débarras</p>
+           <p className="text-sm font-bold text-white/30 tracking-widest uppercase">© {new Date().getFullYear()} JR Débarras</p>
         </div>
       </div>
 

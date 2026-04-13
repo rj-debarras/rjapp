@@ -198,7 +198,7 @@ export default function Dashboard() {
             <TrendingUp className="text-tertiary" />
             Tableau de Bord
           </h1>
-          <p className="text-outline">RJ Débarras - Gestion & Audit</p>
+          <p className="text-outline">JR Débarras - Gestion & Audit</p>
         </div>
         
         {/* Tab Switcher */}

@@ -34,8 +34,8 @@ export default function Header({ onViewChange }: Props) {
           onClick={(e) => { e.preventDefault(); onViewChange('landing'); }}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none"
         >
-          <img src={brandIcon} alt="Icone RJ" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" />
-          <span className="font-display font-extrabold text-[18px] md:text-[22px] text-[#1A2E4C] tracking-tight mt-1">RJ Débarras</span>
+          <img src={brandIcon} alt="Icone JR" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" />
+          <span className="font-display font-extrabold text-[18px] md:text-[22px] text-[#1A2E4C] tracking-tight mt-1">JR Débarras</span>
         </a>
 
         {/* CTA */}

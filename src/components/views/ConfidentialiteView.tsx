@@ -28,7 +28,7 @@ export default function ConfidentialiteView({ onReturnHome }: { onReturnHome: ()
                 <h2 className="text-xl font-bold font-display text-primary mb-3">1. Responsable du traitement</h2>
                 <p className="text-outline leading-relaxed">
                   Le responsable du traitement des données personnelles est :<br />
-                  <strong>RJ Débarras</strong><br />
+                  <strong>JR Débarras</strong><br />
                   Email : {import.meta.env.VITE_CONTACT_EMAIL}<br />
                   Téléphone : {formatPhoneNumber(import.meta.env.VITE_PHONE_NUMBER)}
                 </p>

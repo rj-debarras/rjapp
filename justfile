@@ -1,4 +1,4 @@
-# Justfile for RJ Débarras Development
+# Justfile for JR Débarras Development
 
 # Default command: List available tasks
 default:
@@ -27,6 +27,16 @@ db-init:
 # Initialize the production D1 SQLite database with the schema (CAUTION: Modifies remote database)
 db-init-prod:
 	npx wrangler d1 execute DB --remote --file=./schema.sql
+
+# Sync production secrets from .prod.vars to Cloudflare
+vars-sync:
+	#!/usr/bin/env bash
+	if [ ! -f .prod.vars ]; then
+		echo "❌ .prod.vars not found. Copy .prod.sample and fill in your secrets."
+		exit 1
+	fi
+	echo "🚀 Syncing secrets to Cloudflare..."
+	npx wrangler secret bulk .prod.vars
 
 # View all leads currently in the local D1 database
 db-leads:

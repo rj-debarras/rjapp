@@ -27,8 +27,8 @@ export default function MentionsLegalesView({ onReturnHome }: { onReturnHome: ()
               <div>
                 <h2 className="text-xl font-bold font-display text-primary mb-3">1. Éditeur du site</h2>
                 <p className="text-outline leading-relaxed">
-                  Le site <strong>rjdebarras.com</strong> est édité par :<br />
-                  <strong>RJ Débarras</strong><br />
+                  Le site <strong>jrdebarras.com</strong> est édité par :<br />
+                  <strong>JR Débarras</strong><br />
                   Siège social : {import.meta.env.VITE_POSTAL_ADDRESS}<br />
                   SIRET : {import.meta.env.VITE_COMPANY_SIRET}<br />
                   Téléphone : {formatPhoneNumber(import.meta.env.VITE_PHONE_NUMBER)}<br />
@@ -56,7 +56,7 @@ export default function MentionsLegalesView({ onReturnHome }: { onReturnHome: ()
               <div>
                 <h2 className="text-xl font-bold font-display text-primary mb-3">4. Propriété intellectuelle</h2>
                 <p className="text-outline leading-relaxed">
-                  L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de RJ Débarras, sauf mention contraire. Toute reproduction, représentation, modification, publication, transmission ou dénaturation, totale ou partielle, du site ou de son contenu, par quelque procédé que ce soit, et sur quelque support que ce soit, est interdite sans l'autorisation écrite préalable de RJ Débarras.
+                  L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de JR Débarras, sauf mention contraire. Toute reproduction, représentation, modification, publication, transmission ou dénaturation, totale ou partielle, du site ou de son contenu, par quelque procédé que ce soit, et sur quelque support que ce soit, est interdite sans l'autorisation écrite préalable de JR Débarras.
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export default function MentionsLegalesView({ onReturnHome }: { onReturnHome: ()
               <div>
                 <h2 className="text-xl font-bold font-display text-primary mb-3">6. Droit applicable</h2>
                 <p className="text-outline leading-relaxed">
-                  Tout litige en relation avec l'utilisation du site <strong>rjdebarras.com</strong> est soumis au droit français. L'utilisateur reconnaît la compétence exclusive des tribunaux compétents de Paris.
+                  Tout litige en relation avec l'utilisation du site <strong>jrdebarras.com</strong> est soumis au droit français. L'utilisateur reconnaît la compétence exclusive des tribunaux compétents de Paris.
                 </p>
               </div>
             </div>

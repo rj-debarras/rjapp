@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://rjdebarras.com/sitemap.xml
+Sitemap: https://jrdebarras.com/sitemap.xml

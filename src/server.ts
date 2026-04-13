@@ -96,7 +96,7 @@ async function notifyTelegram(env: Env, lead: any, leadId: number | null) {
 export default {
   async fetch(request: Request, env: Env, ctx: any): Promise<Response> {
     const url = new URL(request.url);
-    const secret = env.SESSION_SECRET || 'fallback-dev-secret-rjdebarras';
+    const secret = env.SESSION_SECRET || 'fallback-dev-secret-jrdebarras';
     const corsHeaders = getCorsHeaders(request);
 
     // Handle Preflight
@@ -238,7 +238,7 @@ export default {
       }
       // Fallback: inline SPA shell that preserves the URL and loads the app
       return new Response(
-        `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RJ Débarras</title><script type="module" src="/assets/index.js"></script><link rel="stylesheet" href="/assets/index.css"></head><body><div id="root"></div></body></html>`,
+        `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JR Débarras</title><script type="module" src="/assets/index.js"></script><link rel="stylesheet" href="/assets/index.css"></head><body><div id="root"></div></body></html>`,
         { status: 200, headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
       );
     }

@@ -1,0 +1,19 @@
+# ========================
+# JR Débarras Production Secrets (Sample)
+# ========================
+# This file serves as a template for .prod.vars
+# Fill in the real values and use `just vars-sync` to push to Cloudflare.
+
+# Telegram Bot Notification
+TELEGRAM_BOT_TOKEN=0000000000:AAAbbbCCCdddEEEfffGGGhhhIIIjjj
+TELEGRAM_CHAT_ID=123456789
+
+# Contact Information (Vite Frontend)
+VITE_PHONE_NUMBER=06XXXXXXXX
+VITE_WHATSAPP_NUMBER=336XXXXXXXX
+VITE_CONTACT_EMAIL=contact@jrdebarras.com
+VITE_POSTAL_ADDRESS=Île-de-France
+
+# Security
+ADMIN_PASSWORD=choisissez_un_mot_de_passe_fort
+SESSION_SECRET=un_secret_tres_long_et_aleatoire_pour_la_production_64_chars_min

@@ -4,7 +4,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import ServicesOverview from './components/sections/ServicesOverview';
 import PricingTiers from './components/sections/PricingTiers';
-import PourquoiRJDebarras from './components/sections/PourquoiRJDebarras';
+import PourquoiJRDebarras from './components/sections/PourquoiJRDebarras';
 import TrustAndSafety from './components/sections/TrustAndSafety';
 import WhatsAppBanner from './components/sections/WhatsAppBanner';
 import ProcessSteps from './components/sections/ProcessSteps';
@@ -24,53 +24,53 @@ const validViews: ViewState[] = ['estimator', 'success', 'diogene', 'caves', 'su
 
 const SEO_CONFIG: Record<ViewState, { title: string, description: string, canonicalPath: string }> = {
   'landing': {
-    title: "RJ Débarras — Débarras Professionnel en Île-de-France | Devis Gratuit",
+    title: "JR Débarras — Débarras Professionnel en Île-de-France | Devis Gratuit",
     description: "Service de débarras professionnel en Île-de-France. Maison, appartement, cave, succession, syndrome de Diogène. Devis gratuit et intervention sous 24h.",
     canonicalPath: "/"
   },
   'estimator': {
-    title: "Estimez votre Débarras en Ligne en 2 Minutes — RJ Débarras",
+    title: "Estimez votre Débarras en Ligne en 2 Minutes — JR Débarras",
     description: "Obtenez une estimation immédiate pour votre débarras. Remplissez notre formulaire simple et rapide pour un devis gratuit sans engagement en Île-de-France.",
     canonicalPath: "/estimator"
   },
   'success': {
-    title: "Demande Confirmée — RJ Débarras",
+    title: "Demande Confirmée — JR Débarras",
     description: "Votre demande d'estimation a bien été envoyée à notre équipe. Nous vous recontactons dans les plus brefs délais avec votre devis de débarras.",
     canonicalPath: "/success"
   },
   'diogene': {
-    title: "Débarras Syndrome de Diogène : Discrétion et Respect — RJ Débarras",
+    title: "Débarras Syndrome de Diogène : Discrétion et Respect — JR Débarras",
     description: "Experts en débarras pour syndrome de Diogène. Intervention rapide, discrète et respectueuse avec désinfection complète de votre logement.",
     canonicalPath: "/diogene"
   },
   'caves': {
-    title: "Débarras de Caves et Greniers Rapide — RJ Débarras",
+    title: "Débarras de Caves et Greniers Rapide — JR Débarras",
     description: "Libérez de l'espace avec notre service de débarras de caves et greniers. Enlèvement d'encombrants et nettoyage complet. Devis immédiat.",
     canonicalPath: "/caves"
   },
   'succession': {
-    title: "Débarras Succession Intégral et Empathique — RJ Débarras",
-    description: "Nous gérons le débarras de succession de A à Z avec empathie. Tri minutieux, recyclage éco-responsable et rachat de vos valeurs.",
+    title: "Débarras Succession Intégral et Empathique — JR Débarras",
+    description: "Nous gérons le débarras de succession de A à Z with empathie. Tri minutieux, recyclage éco-responsable et rachat de vos valeurs.",
     canonicalPath: "/succession"
   },
   'mentions-legales': {
-    title: "Mentions Légales — RJ Débarras",
-    description: "Consultez les mentions légales de RJ Débarras. Informations juridiques, hébergement et responsabilités concernant nos services de débarras.",
+    title: "Mentions Légales — JR Débarras",
+    description: "Consultez les mentions légales de JR Débarras. Informations juridiques, hébergement et responsabilités concernant nos services de débarras.",
     canonicalPath: "/mentions-legales"
   },
   'confidentialite': {
-    title: "Politique de Confidentialité et Cookies — RJ Débarras",
-    description: "Découvrez comment RJ Débarras protège vos données personnelles et gère votre vie privée conformément aux normes RPGD en vigueur.",
+    title: "Politique de Confidentialité et Cookies — JR Débarras",
+    description: "Découvrez comment JR Débarras protège vos données personnelles et gère votre vie privée conformément aux normes RPGD en vigueur.",
     canonicalPath: "/confidentialite"
   },
   'devis': {
-    title: "Suivi de Devis : État de votre Demande — RJ Débarras",
+    title: "Suivi de Devis : État de votre Demande — JR Débarras",
     description: "Consultez en temps réel l'état d'avancement de votre devis de débarras et le statut de notre intervention depuis votre espace personnel.",
     canonicalPath: "/devis"
   },
   'dashboard': {
-    title: "Administration — RJ Débarras",
-    description: "Espace administrateur RJ Débarras.",
+    title: "Administration — JR Débarras",
+    description: "Espace administrateur JR Débarras.",
     canonicalPath: "/dashboard"
   }
 };
@@ -88,7 +88,7 @@ function LandingView({ onViewChange }: { onViewChange: (view: ViewState) => void
     <>
       <Hero onStartEstimator={() => onViewChange('estimator')} onSuccess={() => {}} />
       <TrustAndSafety />
-      <PourquoiRJDebarras />
+      <PourquoiJRDebarras />
       <PricingTiers onStartEstimator={() => onViewChange('estimator')} />
       <ServicesOverview onViewChange={onViewChange} />
       <ProcessSteps />
