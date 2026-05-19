@@ -42,6 +42,10 @@ vars-sync:
 db-leads:
 	npx wrangler d1 execute rj-debarras-db --local --command="SELECT * FROM leads"
 
+# Open the Telegram bot chat CLI
+chat:
+	node chat.mjs
+
 # Install all project dependencies
 install:
 	npm install
