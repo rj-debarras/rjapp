@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Phone } from 'lucide-react';
-import brandIcon from '../../assets/images/brand-icon.png';
+import brandIcon from '../../assets/images/jrlogo.png';
 import { formatPhoneNumber } from '../../utils/format';
 
 interface Props {
@@ -34,7 +34,7 @@ export default function Header({ onViewChange }: Props) {
           onClick={(e) => { e.preventDefault(); onViewChange('landing'); }}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none"
         >
-          <img src={brandIcon} alt="Icone JR" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" />
+          <img src={brandIcon} alt="Icone JR" className="h-10 md:h-12 w-auto object-contain" />
           <span className="font-display font-extrabold text-[18px] md:text-[22px] text-[#1A2E4C] tracking-tight mt-1">JR Débarras</span>
         </a>
 

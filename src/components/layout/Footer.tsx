@@ -1,5 +1,5 @@
 import { MapPin, FileText, Shield, Mail, Phone, MessageCircle, Clock } from 'lucide-react';
-import brandIcon from '../../assets/images/brand-icon.png';
+import brandIcon from '../../assets/images/jrlogo.png';
 import { formatPhoneNumber } from '../../utils/format';
 
 export default function Footer({ onViewChange }: { onViewChange?: (view: any) => void }) {
@@ -67,10 +67,16 @@ export default function Footer({ onViewChange }: { onViewChange?: (view: any) =>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 text-center">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
           <p className="text-white/40 text-sm">
             © {new Date().getFullYear()} JR Débarras — Tous droits réservés
           </p>
+          {import.meta.env.VITE_COMPANY_SIREN && (
+            <>
+              <span className="hidden md:inline text-white/20">|</span>
+              <p className="text-white/40 text-sm">SIREN : {import.meta.env.VITE_COMPANY_SIREN}</p>
+            </>
+          )}
         </div>
       </div>
     </footer>
