@@ -20,6 +20,9 @@ dist-ssr
 .prod.vars
 .credentials
 
+# Claude Code
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -33,4 +36,3 @@ dist-ssr
 
 # Wrangler
 .wrangler
-.prod.vars
