@@ -30,7 +30,7 @@ export default function MentionsLegalesView({ onReturnHome }: { onReturnHome: ()
                   Le site <strong>jrdebarras.com</strong> est édité par :<br />
                   <strong>JR Débarras</strong><br />
                   Siège social : {import.meta.env.VITE_POSTAL_ADDRESS}<br />
-                  SIRET : {import.meta.env.VITE_COMPANY_SIRET}<br />
+                  SIREN : {import.meta.env.VITE_COMPANY_SIREN}<br />
                   Téléphone : {formatPhoneNumber(import.meta.env.VITE_PHONE_NUMBER)}<br />
                   Email : {import.meta.env.VITE_CONTACT_EMAIL}
                 </p>
