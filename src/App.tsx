@@ -87,7 +87,7 @@ function getViewFromPath(): ViewState {
 function LandingView({ onViewChange }: { onViewChange: (view: ViewState) => void }) {
   return (
     <>
-      <Hero onStartEstimator={() => onViewChange('estimator')} onSuccess={() => onViewChange('success')} />
+      <Hero onStartEstimator={() => onViewChange('estimator')} onSuccess={() => onViewChange('devis')} />
       <TrustAndSafety />
       <PourquoiJRDebarras />
       <PricingTiers onStartEstimator={() => onViewChange('estimator')} />
