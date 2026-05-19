@@ -100,8 +100,14 @@ async function notifyTelegram(env: Env, lead: any, leadId: number | null) {
     });
     if (tgRes.ok) {
       await logActivity(env.DB, 'TELEGRAM_NOTIFY', `Notification Telegram envoyée pour le devis #${leadId || '?'}`, new Request('https://internal'));
+    } else {
+      const body = await tgRes.text();
+      await logActivity(env.DB, 'TELEGRAM_ERROR', `Échec Telegram pour devis #${leadId || '?'} — HTTP ${tgRes.status}: ${body}`, new Request('https://internal'));
     }
-  } catch (err) { console.error('Telegram failed', err); }
+  } catch (err: any) {
+    console.error('Telegram failed', err);
+    await logActivity(env.DB, 'TELEGRAM_ERROR', `Erreur Telegram pour devis #${leadId || '?'} — ${err?.message || err}`, new Request('https://internal'));
+  }
 }
 
 export default {
