@@ -15,6 +15,7 @@ import SuccessionView from './components/views/SuccessionView';
 import MentionsLegalesView from './components/views/MentionsLegalesView';
 import ConfidentialiteView from './components/views/ConfidentialiteView';
 import TrackingView from './components/views/TrackingView';
+import SuccessView from './components/SuccessView';
 import Dashboard from './components/admin/Dashboard';
 import SEO from './components/layout/SEO';
 
@@ -86,7 +87,7 @@ function getViewFromPath(): ViewState {
 function LandingView({ onViewChange }: { onViewChange: (view: ViewState) => void }) {
   return (
     <>
-      <Hero onStartEstimator={() => onViewChange('estimator')} onSuccess={() => {}} />
+      <Hero onStartEstimator={() => onViewChange('estimator')} onSuccess={() => onViewChange('success')} />
       <TrustAndSafety />
       <PourquoiJRDebarras />
       <PricingTiers onStartEstimator={() => onViewChange('estimator')} />
@@ -126,6 +127,11 @@ function App() {
         {currentView === 'landing' && <LandingView onViewChange={handleViewChange} />}
         {currentView === 'estimator' && <EstimatorView onSuccess={() => handleViewChange('devis', 'success=true')} onReturnHome={() => handleViewChange('landing')} />}
 
+        {currentView === 'success' && (
+          <div className="flex-1 flex items-center justify-center p-6">
+            <SuccessView onReturnHome={() => handleViewChange('landing')} />
+          </div>
+        )}
         {currentView === 'devis' && <TrackingView />}
         {currentView === 'dashboard' && <Dashboard />}
         {currentView === 'diogene' && <DiogeneView onReturnHome={() => handleViewChange('landing')} />}
