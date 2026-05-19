@@ -93,11 +93,14 @@ async function notifyTelegram(env: Env, lead: any, leadId: number | null) {
   ].filter(Boolean).join('\n');
 
   try {
-    await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    const tgRes = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }),
     });
+    if (tgRes.ok) {
+      await logActivity(env.DB, 'TELEGRAM_NOTIFY', `Notification Telegram envoyée pour le devis #${leadId || '?'}`, new Request('https://internal'));
+    }
   } catch (err) { console.error('Telegram failed', err); }
 }
 
