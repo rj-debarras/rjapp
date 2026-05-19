@@ -20,27 +20,15 @@ export default function Dashboard() {
 
   // Persistence: Check for session on mount
   useEffect(() => {
-    const saved = sessionStorage.getItem('admin_auth');
-    const timestamp = sessionStorage.getItem('admin_auth_timestamp');
-    
-    if (saved && timestamp) {
-      const now = Date.now();
-      const age = now - parseInt(timestamp, 10);
-      const dayInMs = 24 * 60 * 60 * 1000;
-
-      if (age < dayInMs) {
-        setPassword(saved);
-      } else {
-        // Session expired
-        sessionStorage.removeItem('admin_auth');
-        sessionStorage.removeItem('admin_auth_timestamp');
-      }
+    const saved = localStorage.getItem('admin_auth');
+    if (saved) {
+      setPassword(saved);
     }
   }, []);
 
-  // Separate effect to handle auto-login if password is set from sessionStorage
+  // Separate effect to handle auto-login if password is set from localStorage
   useEffect(() => {
-    if (!isAuthorized && password && sessionStorage.getItem('admin_auth') === password) {
+    if (!isAuthorized && password && localStorage.getItem('admin_auth') === password) {
       handleLogin(null as any);
     }
   }, [password]);
@@ -53,8 +41,7 @@ export default function Dashboard() {
       const res = await fetch('/api/admin/leads', { headers: { 'Authorization': password } });
       if (res.ok) {
         setIsAuthorized(true);
-        sessionStorage.setItem('admin_auth', password);
-        sessionStorage.setItem('admin_auth_timestamp', Date.now().toString());
+        localStorage.setItem('admin_auth', password);
         const data = await res.json();
         setLeads(data.results || []);
         // Also fetch logs
@@ -62,8 +49,7 @@ export default function Dashboard() {
         if (logsRes.ok) { const ld = await logsRes.json(); setLogs(ld.results || []); }
       } else {
         setError('Mot de passe incorrect');
-        sessionStorage.removeItem('admin_auth');
-        sessionStorage.removeItem('admin_auth_timestamp');
+        localStorage.removeItem('admin_auth');
       }
     } catch (err) {
       setError('Erreur de connexion au serveur.');
@@ -73,8 +59,7 @@ export default function Dashboard() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('admin_auth');
-    sessionStorage.removeItem('admin_auth_timestamp');
+    localStorage.removeItem('admin_auth');
     setIsAuthorized(false);
     setPassword('');
   };
