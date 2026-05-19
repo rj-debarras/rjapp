@@ -6,7 +6,8 @@ export default function StepContact({ loading, error: serverError, onSubmit }: a
     client_name: '',
     client_phone: '',
     client_email: '',
-    postal_code: ''
+    postal_code: '',
+    website: '',
   });
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -99,7 +100,19 @@ export default function StepContact({ loading, error: serverError, onSubmit }: a
         </div>
       )}
 
-      <button 
+      {/* Honeypot: hidden from real users, bots fill it */}
+      <input
+        type="text"
+        name="website"
+        value={form.website}
+        onChange={(e) => setForm({ ...form, website: e.target.value })}
+        tabIndex={-1}
+        aria-hidden="true"
+        autoComplete="off"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+      />
+
+      <button
         onClick={() => onSubmit({ ...form, client_phone: cleanPhone })}
         disabled={!isValid || loading}
         className="mt-8 w-full py-4 rounded-xl bg-tertiary text-white font-bold text-lg shadow-[0_4px_20px_rgba(255,107,0,0.3)] transition-all disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed flex justify-center items-center hover:scale-[1.02] active:scale-[0.98]"

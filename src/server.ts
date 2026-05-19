@@ -116,6 +116,23 @@ export default {
     if (url.pathname === '/api/submit-lead' && request.method === 'POST') {
       try {
         const data = await request.json() as any;
+
+        // Honeypot: bots fill hidden fields, real users don't
+        if (data.website) {
+          return new Response(JSON.stringify({ success: true }), { status: 200, headers: corsHeaders });
+        }
+
+        // Phone dedup: same phone can't submit again within 24h
+        const existing = await env.DB.prepare(
+          `SELECT id FROM leads WHERE client_phone = ? AND created_at > datetime('now', '-24 hours')`
+        ).bind(data.client_phone).first();
+        if (existing) {
+          return new Response(
+            JSON.stringify({ error: "Nous avons déjà reçu votre demande. Notre équipe vous recontactera sous 24h." }),
+            { status: 429, headers: corsHeaders }
+          );
+        }
+
         const trackingCode = generateTrackingCode();
         
         const result = await env.DB.prepare(`
