@@ -2,6 +2,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 export default function PourquoiJRDebarras() {
   const us = [
+    "Savoir-faire et réputation solides depuis 2007",
     "Estimation gratuite et transparente sous 24h",
     "Valorisation de vos biens (Déduction de la facture)",
     "Tri éco-responsable (dons aux associations)",
@@ -9,6 +10,7 @@ export default function PourquoiJRDebarras() {
     "Équipe discrète et respectueuse"
   ];
   const them = [
+    "Entreprises récentes sans garanties",
     "Devis payant ou opaque",
     "Rien n'est valorisé, tout est jeté",
     "Déchetterie sauvage ou sans tri",
@@ -20,8 +22,11 @@ export default function PourquoiJRDebarras() {
     <section className="py-24 bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-block mb-4 px-4 py-1.5 bg-primary/5 text-primary rounded-full font-bold text-sm tracking-wide uppercase border border-primary/10">
+            Entreprise de confiance depuis 2007
+          </div>
           <h2 className="text-4xl font-display font-extrabold text-primary mb-6">Pourquoi choisir JR Débarras ?</h2>
-          <p className="text-lg text-outline">L'exigence d'un service premium par rapport aux solutions classiques.</p>
+          <p className="text-lg text-outline">Forts de nos 17 années d'expérience, nous vous garantissons l'exigence d'un service premium par rapport aux solutions classiques.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">

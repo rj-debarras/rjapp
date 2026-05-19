@@ -23,13 +23,13 @@ export default function Hero({ onStartEstimator, onSuccess }: { onStartEstimator
             <span className="text-sm font-semibold tracking-wide uppercase">Intervention Rapide IDF</span>
           </div>
           
-          <h1 className="text-5xl lg:text-h1 font-display font-extrabold text-white leading-[1.1] mb-6 tracking-tight text-balance">
-            Libérez votre espace, <br/>
-            <span className="text-[#8CF5E4]">sans effort.</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-display font-extrabold text-white leading-[1.1] mb-4 tracking-tight text-balance">
+            L'art de l'accompagnement <br/>
+            <span className="text-[#8CF5E4] block mt-2 text-3xl sm:text-4xl lg:text-6xl">depuis 2007.</span>
           </h1>
           
           <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-lg font-sans text-balance">
-            Gagnez du temps et confiez le débarras de votre bien à des experts. De l'estimation transparente au recyclage, on gère tout.
+            Libérez votre espace sans effort. De l'estimation au recyclage, nos experts prennent tout en charge.
           </p>
           
           {/* Mobile Actions: Only display on standard devices (< lg) */}

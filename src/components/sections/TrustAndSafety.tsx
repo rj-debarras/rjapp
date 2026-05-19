@@ -23,7 +23,7 @@ export default function TrustAndSafety() {
     <section className="py-20 bg-surface-container-lowest relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-display font-bold text-primary mb-4">L'art de l'accompagnement</h2>
+          <h2 className="text-3xl font-display font-bold text-primary mb-4">Notre engagement</h2>
           <p className="text-lg text-outline">Nous ne faisons pas que vider des maisons, nous fermons un chapitre pour que vous puissiez ouvrir le suivant.</p>
         </div>
         
