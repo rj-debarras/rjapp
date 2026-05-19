@@ -80,9 +80,17 @@ async function notifyTelegram(env: Env, lead: any, leadId: number | null) {
     `🆕 *Nouveau Devis #${leadId || '?'}*`,
     `👤 *Client :* ${lead.client_name}`,
     `📞 *Tél :* ${lead.client_phone}`,
-    `📍 *CP :* ${lead.postal_code}`,
+    lead.client_email ? `📧 *Email :* ${lead.client_email}` : null,
+    `📍 *Code Postal :* ${lead.postal_code}`,
+    ``,
+    `🏠 *Type de bien :* ${lead.property_type}`,
+    `📦 *Volume estimé :* ${lead.estimated_volume_m2 ? lead.estimated_volume_m2 + ' m²' : 'Non précisé'}`,
+    `🏢 *Étage :* ${lead.floor_level ? lead.floor_level : 'Non précisé'}`,
+    `🛗 *Ascenseur :* ${lead.has_elevator ? 'Oui' : 'Non'}`,
+    `💎 *Objets de valeur :* ${lead.has_valuables ? 'Oui' : 'Non'}`,
+    ``,
     `🔑 *Suivi :* \`${lead.tracking_code}\``,
-  ].join('\n');
+  ].filter(Boolean).join('\n');
 
   try {
     await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
